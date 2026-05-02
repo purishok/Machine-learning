@@ -9,3 +9,8 @@ model.fit(x_train,y_train)
 print(model.score(x_test,y_test))
 a = model.predict([[60]])
 print(a)
+
+#plt.gcf - звертання до фігури
+#plt.gcf().subplots_adjust(wspace,hspace)
+#plt.tight_layout - звузити меді графіка
+#ax.xaxis.label.set_rotation(90)
