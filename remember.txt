@@ -1,0 +1,20 @@
+x1_surf, x2_surf = np.meshgrid(np.linspace(X1.min(), X1.max(), 100),
+                               np.linspace(X2.min(), X2.max(), 100))
+
+
+x = fig.add_subplot(111, projection='3d')
+
+ax.scatter(X1[above_plane], X2[above_plane], y_test[above_plane],  label="Above Plane",s=70,alpha=.7,ec='k')
+ax.scatter(X1[below_plane], X2[below_plane], y_test[below_plane],  label="Below Plane",s=50,alpha=.3,ec='k')
+
+axes = pd.plotting.scatter_matrix(df, alpha=0.2)
+
+for ax in axes.flatten():
+    ax.xaxis.label.set_rotation(90)
+    ax.yaxis.label.set_rotation(0)
+    ax.yaxis.label.set_ha('right')
+
+data.select_dtypes(include=['float64']).columns.tolist()
+prepped_data['NObeyesdad'] = prepped_data['NObeyesdad'].astype('category').cat.codes
+encoder = OneHotEncoder(sparse_output=False, drop='first')
+encoded_features = encoder.fit_transform(scaled_data[categorical_columns])
